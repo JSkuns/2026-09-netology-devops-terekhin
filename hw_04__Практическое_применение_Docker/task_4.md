@@ -13,30 +13,24 @@
 
 
 
-# В UI Яндекс Cloud пытался создать новую ВМ с названием "test04"
-08.10.2026 - Яндекс Cloud не работал целый день, написал на продление дедлайна
+# В UI Яндекс Cloud создаём новую ВМ с названием "test04"
 
 # Создание нового ssh ключа
 ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_new -C "comment"
 Использовал старый
 
 # Подключиться к ВМ в облаке
-ssh yc-user@<ПУБЛИЧНЫЙ_IP_ВМ>
-
-Если ключ лежит не в стандартной папке
-ssh -i /путь/к/ключу id_rsa yc-user@<ПУБЛИЧНЫЙ_IP_ВМ>
+ssh -l admin1 51.250.77.68 // Было написано как подключиться в y.cloud
 
 # После входа выполните установку Docker и добавление пользователя в группу docker
-# (чтобы не писать sudo перед каждой командой):
 
 sudo apt update
 sudo apt install -y docker.io
-sudo usermod -aG docker $USER
 
 # После добавления в группу нужно переподключиться к ВМ, чтобы изменения вступили в силу:
 
 exit
-ssh yc-user@<ПУБЛИЧНЫЙ_IP_ВМ>
+ssh -l admin1 51.250.77.68
 
 Проверить установку: 
 docker --version
@@ -72,13 +66,18 @@ chmod +x deploy.sh
 Запускаем скрипт
 ./deploy.sh
 
+Запустить службу Docker
+sudo systemctl start docker
+
+Проверим, что служба работает
+sudo systemctl status docker
 
 # Внешняя проверка через check-host.net
 Открываем
 https://check-host.net/check-http
 
 В поле ввода вводим адрес сервиса, обязательно с http:// (не https):
-http://<ПУБЛИЧНЫЙ_IP_ВМ>:8090
+http://51.250.77.68:8090
 
 Нажимаем Check
 200 OK и в ответе виден текст "TIME: ..., IP: ...".
@@ -109,7 +108,7 @@ sudo docker exec -ti shvirtd-example-python-db-1 mysql -uroot -pQwErTy1234
 
 В консоли MySQL вводим команды по очереди
 show databases;
-use virtd;
+use app_db;
 show tables;
 SELECT * from requests LIMIT 10;
 

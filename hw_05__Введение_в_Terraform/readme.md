@@ -91,7 +91,7 @@ find ~/.terraform.d/plugins -type f -name "terraform-provider-*" -exec chmod +x 
 1.4
 Судя по описанию resource должен иметь тип и имя, добавим имя
 resource "docker_image" "nginx" {
-Второе исправление имя ресурса не должно начианться с цифры "1"
+Второе исправление имя ресурса не должно начинаться с цифры "1"
 resource "docker_container" "nginx" {
 Третье исправление, нет такой переменной random_password.random_string_FAKE.resulT, а есть
 random_password.random_string.result

@@ -26,3 +26,7 @@
 
 
 Создал inventory, долго искал как создать много ресурсов, в итогк разделил по зонам "a" и "d" яндекс облака
+
+Закоммитил
+https://github.com/JSkuns/ter-homeworks/commit/3aa6b439b6148f372bd9efcf7af2371a28fa1c52
+https://github.com/JSkuns/2026-09-netology-devops-terekhin/blob/main/hw_07__%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D1%8E%D1%89%D0%B8%D0%B5_%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8_%D0%B2_%D0%BA%D0%BE%D0%B4%D0%B5_Terraform/readme.md
